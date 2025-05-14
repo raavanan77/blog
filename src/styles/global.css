@@ -1,0 +1,220 @@
+/*
+ Dark mode version of Bear Blog's default CSS.
+ Original: https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
+ License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
+ */
+ :root {
+  --accent: #4d59ff;
+  --accent-dark: #8f96ff;
+  --black: 240, 240, 245;
+  --gray: 175, 184, 193;
+  --gray-light: 45, 51, 59;
+  --gray-dark: 220, 225, 235;
+  --background: #121620;
+  --background-gradient: rgba(var(--gray-light), 50%), var(--background);
+  --box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.5),
+    0 16px 32px rgba(0, 0, 0, 0.5);
+}
+
+@font-face {
+  font-family: "Atkinson";
+  src: url("/fonts/atkinson-regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Atkinson";
+  src: url("/fonts/atkinson-bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: "Atkinson", sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  background: var(--background);
+  background-image: linear-gradient(var(--background-gradient));
+  background-size: 100% 600px;
+  background-repeat: no-repeat;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  color: rgb(var(--gray-dark));
+  font-size: 20px;
+  line-height: 1.7;
+}
+
+main {
+  width: 720px;
+  max-width: calc(100% - 2em);
+  margin: auto;
+  padding: 3em 1em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 0.5rem 0;
+  color: rgb(var(--black));
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 3.052em;
+}
+
+h2 {
+  font-size: 2.441em;
+}
+
+h3 {
+  font-size: 1.953em;
+}
+
+h4 {
+  font-size: 1.563em;
+}
+
+h5 {
+  font-size: 1.25em;
+}
+
+strong,
+b {
+  font-weight: 700;
+}
+
+a {
+  color: var(--accent-dark);
+}
+
+a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+.prose p {
+  margin-bottom: 2em;
+}
+
+textarea {
+  width: 100%;
+  font-size: 16px;
+  background-color: rgb(var(--gray-light));
+  color: rgb(var(--gray-dark));
+  border: 1px solid rgba(var(--gray), 0.3);
+}
+
+input {
+  font-size: 16px;
+  background-color: rgb(var(--gray-light));
+  color: rgb(var(--gray-dark));
+  border: 1px solid rgba(var(--gray), 0.3);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th, table td {
+  border: 1px solid rgba(var(--gray), 0.3);
+  padding: 8px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+code {
+  padding: 2px 5px;
+  background-color: rgba(var(--gray-light), 0.7);
+  color: rgb(var(--gray-dark));
+  border-radius: 2px;
+}
+
+pre {
+  padding: 1.5em;
+  border-radius: 8px;
+  background-color: rgba(var(--gray-light), 0.7);
+  overflow-x: auto;
+}
+
+pre > code {
+  all: unset;
+  color: rgb(var(--gray-dark));
+}
+
+blockquote {
+  border-left: 4px solid var(--accent);
+  padding: 0 0 0 20px;
+  margin: 0px;
+  font-size: 1.333em;
+  color: rgba(var(--gray-dark), 0.9);
+}
+
+hr {
+  border: none;
+  border-top: 1px solid rgba(var(--gray), 0.3);
+}
+
+@media (max-width: 720px) {
+  body {
+    font-size: 18px;
+  }
+  
+  main {
+    padding: 1em;
+  }
+}
+
+.sr-only {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Additional dark mode specific improvements */
+::selection {
+  background-color: var(--accent);
+  color: var(--background);
+}
+
+button, 
+input[type="submit"], 
+input[type="button"] {
+  background-color: var(--accent);
+  color: var(--background);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover, 
+input[type="submit"]:hover, 
+input[type="button"]:hover {
+  background-color: var(--accent-dark);
+}
